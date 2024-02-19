@@ -13,6 +13,11 @@ import { GiftCard, StorePostCartsCartReq } from "@medusajs/medusa"
 import { revalidateTag } from "next/cache"
 import { redirect } from "next/navigation"
 
+
+// Define a variable to store the order note globally
+let orderNote: string | undefined;
+
+
 export async function cartUpdate(data: StorePostCartsCartReq) {
   const cartId = cookies().get("_medusa_cart_id")?.value
 
@@ -106,12 +111,18 @@ export async function submitDiscountForm(
 
 export async function setAddresses(currentState: unknown, formData: FormData) {
   if (!formData) return "No form data received"
+  
+// Get the order note from the form data
+orderNote = formData.get("order_note") as string;
 
+
+    
   const cartId = cookies().get("_medusa_cart_id")?.value
 
   if (!cartId) return { message: "No cartId cookie found" }
 
   const data = {
+
     shipping_address: {
       first_name: formData.get("shipping_address.first_name"),
       last_name: formData.get("shipping_address.last_name"),
@@ -125,7 +136,11 @@ export async function setAddresses(currentState: unknown, formData: FormData) {
       phone: formData.get("shipping_address.phone"),
     },
     email: formData.get("email"),
+    context:{
+      order_note: orderNote,
+    },
   } as StorePostCartsCartReq
+
 
   const sameAsBilling = formData.get("same_as_billing")
 
@@ -144,6 +159,8 @@ export async function setAddresses(currentState: unknown, formData: FormData) {
       province: formData.get("billing_address.province"),
       phone: formData.get("billing_address.phone"),
     } as StorePostCartsCartReq
+
+    // console.log("data:", data); // Logging only data
 
   try {
     await updateCart(cartId, data)
@@ -184,6 +201,8 @@ export async function setPaymentMethod(providerId: string) {
   }
 }
 
+
+
 export async function placeOrder() {
   const cartId = cookies().get("_medusa_cart_id")?.value
 
@@ -193,6 +212,9 @@ export async function placeOrder() {
 
   try {
     cart = await completeCart(cartId)
+
+    console.log("Order data:", cart); // Logging order data
+
     revalidateTag("cart")
   } catch (error: any) {
     throw error

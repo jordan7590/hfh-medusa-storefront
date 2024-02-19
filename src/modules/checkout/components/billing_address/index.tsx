@@ -21,6 +21,7 @@ const BillingAddress = ({
       cart?.billing_address?.country_code || countryCode || "",
     "billing_address.province": cart?.billing_address?.province || "",
     "billing_address.phone": cart?.billing_address?.phone || "",
+    // "order_note": "", // Add this line to declare order_note property
   })
 
   useEffect(() => {
@@ -34,19 +35,22 @@ const BillingAddress = ({
       "billing_address.country_code": cart?.billing_address?.country_code || "",
       "billing_address.province": cart?.billing_address?.province || "",
       "billing_address.phone": cart?.billing_address?.phone || "",
+      // "order_note": formData.order_note || "", // Include order_note here
     })
-  }, [cart?.billing_address])
+  // }, [cart?.billing_address, formData.order_note]); // Add formData.order_note to dependency array
+  }, [cart?.billing_address]); // Add formData.order_note to dependency array
 
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLInputElement | HTMLSelectElement
     >
   ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    })
-  }
+    const { name, value } = e.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+  };
 
   return (
     <>
@@ -120,6 +124,10 @@ const BillingAddress = ({
           value={formData["billing_address.phone"]}
           onChange={handleChange}
         />
+        
+       
+
+
       </div>
     </>
   )

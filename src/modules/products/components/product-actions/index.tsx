@@ -33,6 +33,7 @@ export default function ProductActions({
 }: ProductActionsProps): JSX.Element {
   const [options, setOptions] = useState<Record<string, string>>({})
   const [isAdding, setIsAdding] = useState(false)
+  const [quantity, setQuantity] = useState<number>(1); // State to manage quantity
 
   const countryCode = useParams().countryCode as string
 
@@ -70,16 +71,32 @@ export default function ProductActions({
 
   // memoized function to check if the current options are a valid variant
   const variant = useMemo(() => {
-    let variantId: string | undefined = undefined
-
+    let variantId = undefined;
+  
+    console.log("Options:", options);
+    console.log("Variant Record:", variantRecord);
+  
     for (const key of Object.keys(variantRecord)) {
-      if (isEqual(variantRecord[key], options)) {
-        variantId = key
+      const record = variantRecord[key];
+      const optionsMatch = Object.keys(options).every(optionKey => {
+        // Exclude the 'quantity' field from comparison
+        if (optionKey === 'quantity') {
+          return true;
+        }
+        return record[optionKey] === options[optionKey];
+      });
+  
+      if (optionsMatch) {
+        variantId = key;
+        break;
       }
     }
-
-    return variants.find((v) => v.id === variantId)
-  }, [options, variantRecord, variants])
+  
+    console.log("Variant ID:", variantId);
+  
+    return variants.find(v => v.id === variantId);
+  }, [options, variantRecord, variants]);
+  
 
   // if product only has one variant, then select it
   useEffect(() => {
@@ -88,9 +105,16 @@ export default function ProductActions({
     }
   }, [variants, variantRecord])
 
+  // console.log(variants, variantRecord)
+
   // update the options when a variant is selected
   const updateOptions = (update: Record<string, string>) => {
     setOptions({ ...options, ...update })
+    setQuantity(update.quantity ? parseInt(update.quantity) : 0);
+    // console.log(options)
+    // console.log(variant)
+
+    
   }
 
   // check if the selected variant is in stock
@@ -114,10 +138,13 @@ export default function ProductActions({
     setIsAdding(true)
     await addToCart({
       variantId: variant.id,
-      quantity: 1,
+      quantity: quantity,
       countryCode: countryCode,
     })
     setIsAdding(false)
+
+    console.log("Added to cart:", { variantId: variant.id, quantity: quantity, countryCode: countryCode });
+
   }
 
   return (
@@ -134,6 +161,8 @@ export default function ProductActions({
                       current={options[option.id]}
                       updateOption={updateOptions}
                       title={option.title}
+                      options={options} // Pass options prop here
+
                     />
                   </div>
                 )
@@ -153,7 +182,7 @@ export default function ProductActions({
           isLoading={isAdding}
         >
           {!variant
-            ? "Select variant"
+            ? "Variant Not Selected / Unavailable"
             : !inStock
             ? "Out of stock"
             : "Add to cart"}
@@ -173,3 +202,5 @@ export default function ProductActions({
     </>
   )
 }
+
+//working one

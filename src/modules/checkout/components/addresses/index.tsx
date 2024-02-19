@@ -164,6 +164,14 @@ const Addresses = ({
                         </Text>
                       </>
                     )}
+                        <>
+                          <Text className="txt-medium-plus text-ui-fg-base mb-1">
+                            Order Note
+                          </Text>
+                          <Text className="txt-medium text-ui-fg-subtle">
+                            {(cart.context.order_note as string)}
+                          </Text>
+                        </>
                   </div>
                 </div>
               </div>

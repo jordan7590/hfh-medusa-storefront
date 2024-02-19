@@ -23,16 +23,23 @@ export default async function Footer() {
     (categories) => categories
   )
   return (
-    <footer className="border-t border-ui-border-base w-full">
+    <footer className="border-t border-ui-border-base w-full bg-[#F9F9F9]">
       <div className="content-container flex flex-col w-full">
         <div className="flex flex-col gap-y-6 xsmall:flex-row items-start justify-between py-40">
-          <div>
+          <div style={{ width: "450px" }}>
             <LocalizedClientLink
               href="/"
-              className="txt-compact-xlarge-plus text-ui-fg-subtle hover:text-ui-fg-base uppercase"
+              className="flex txt-compact-xlarge-plus text-ui-fg-subtle hover:text-ui-fg-base uppercase"
             >
-              Medusa Store
+              <img src="https://hfh.tonserve.com/assets/images/icon/logo.png" alt="Henry Ford Health" className="logo" />
             </LocalizedClientLink>
+            <p className="py-3">
+              Welcome to Henry Ford Health Uniforms by Hoyt & Company. 
+              Explore our range of customizable apparel and promotional products.
+              Create a professional image with our selection.
+              Please ensure correct sizes and approved colors, as orders are custom and non-returnable.
+            </p>
+
           </div>
           <div className="text-small-regular gap-10 md:gap-x-16 grid grid-cols-2 sm:grid-cols-3">
             {productCategories && productCategories?.length > 0 && (
@@ -150,10 +157,33 @@ export default async function Footer() {
               </ul>
             </div>
           </div>
+
+          <div>
+          <span className="txt-small-plus txt-ui-fg-base">Store Information</span>
+            <ul className="grid grid-cols-1 gap-y-2 text-ui-fg-subtle txt-small mt-2">
+                <li className="flex items-center space-x-2">
+                    <i className="fa fa-map-marker text-gray-500"></i>
+                    <span>12555 N. Saginaw Rd.<br/>Clio, MI 48420</span>
+                </li>
+                <li className="flex items-center space-x-2">
+                    <i className="fa fa-phone text-gray-500"></i>
+                    <a href="tel:810.547.1646">Services: 810.547.1646</a>
+                </li>
+                <li className="flex items-center space-x-2">
+                    <i className="fa fa-phone text-gray-500"></i>
+                    <a href="tel:810.624.4445">Sales: 810.624.4445</a>
+                </li>
+                <li className="flex items-center space-x-2">
+                    <i className="fa fa-envelope-o text-gray-500"></i>
+                    <span>Email: <a href="mailto:sales@hotcompany.com">sales@hoytcompany.com</a></span>
+                </li>
+            </ul>
+          </div>
+
         </div>
         <div className="flex w-full mb-16 justify-between text-ui-fg-muted">
           <Text className="txt-compact-small">
-            © {new Date().getFullYear()} Medusa Store. All rights reserved.
+            © {new Date().getFullYear()} Henry Ford Health Uniform Apparel. All rights reserved.
           </Text>
           <MedusaCTA />
         </div>

@@ -8,9 +8,9 @@ import { getRegion } from "app/actions"
 import { ProductCollectionWithPreviews } from "types/global"
 
 export const metadata: Metadata = {
-  title: "Medusa Next.js Starter Template",
+  title: "Henry Ford Health | Custom Uniforms & Apparel",
   description:
-    "A performant frontend ecommerce starter template with Next.js 14 and Medusa.",
+    "Henry Ford Health's leading Uniform, Apparel, and Promotional Items supplier. Shop for custom HFH jackets, t-shirts, and more! Hoyt & Company.",
 }
 
 const getCollectionsWithProducts = async (

@@ -5,6 +5,7 @@ import { ArrowRightMini, XMark } from "@medusajs/icons"
 import { Region } from "@medusajs/medusa"
 import { Text, clx, useToggleState } from "@medusajs/ui"
 import { Fragment } from "react"
+import "font-awesome/css/font-awesome.min.css"
 
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import CountrySelect from "../country-select"
@@ -19,16 +20,15 @@ const SideMenuItems = {
 
 const SideMenu = ({ regions }: { regions: Region[] | null }) => {
   const toggleState = useToggleState()
-
   return (
     <div className="h-full">
       <div className="flex items-center h-full">
         <Popover className="h-full flex">
           {({ open, close }) => (
             <>
-              <div className="relative flex h-full">
-                <Popover.Button className="relative h-full flex items-center transition-all ease-out duration-200 focus:outline-none hover:text-ui-fg-base">
-                  Menu
+              <div className="relative flex h-full txt-xl">
+                <Popover.Button className="txt-compact-xlarge-plus relative h-full flex items-center transition-all ease-out duration-200 focus:outline-none hover:text-ui-fg-base">
+                <i className="fa fa-bars text-[#221F5F] pr-2"></i>
                 </Popover.Button>
               </div>
 
@@ -84,7 +84,7 @@ const SideMenu = ({ regions }: { regions: Region[] | null }) => {
                         />
                       </div>
                       <Text className="flex justify-between txt-compact-small">
-                        © {new Date().getFullYear()} Medusa Store. All rights
+                        © {new Date().getFullYear()} HFH Store. All rights
                         reserved.
                       </Text>
                     </div>

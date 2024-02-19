@@ -18,11 +18,14 @@ type ProductTemplateProps = {
   countryCode: string
 }
 
+
 const ProductTemplate: React.FC<ProductTemplateProps> = ({
   product,
   region,
   countryCode,
 }) => {
+  // console.log(product);
+
   if (!product || !product.id) {
     return notFound()
   }

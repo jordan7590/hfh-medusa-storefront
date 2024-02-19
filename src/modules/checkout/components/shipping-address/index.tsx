@@ -31,6 +31,7 @@ const ShippingAddress = ({
     "shipping_address.province": cart?.shipping_address?.province || "",
     email: cart?.email || "",
     "shipping_address.phone": cart?.shipping_address?.phone || "",
+    "order_note": "", // Add this line to declare order_note property
   })
 
   const countriesInRegion = useMemo(
@@ -60,20 +61,22 @@ const ShippingAddress = ({
       "shipping_address.province": cart?.shipping_address?.province || "",
       email: cart?.email || "",
       "shipping_address.phone": cart?.shipping_address?.phone || "",
+      "order_note": formData.order_note || "", // Include order_note here
+
     })
-  }, [cart?.shipping_address, cart?.email])
+  }, [cart?.shipping_address, cart?.email, formData.order_note])
 
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLInputElement | HTMLSelectElement
     >
   ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    })
-  }
-
+    const { name, value } = e.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+  };
   return (
     <>
       {customer && (addressesInRegion?.length || 0) > 0 && (
@@ -174,7 +177,18 @@ const ShippingAddress = ({
           value={formData["shipping_address.phone"]}
           onChange={handleChange}
         />
+       
       </div>
+      <div className="grid grid-cols-1 gap-4 mb-4">
+      <Input
+          label="Order Note" // Add the label prop
+          type="textarea"
+          name="order_note"
+          value={formData.order_note}
+          onChange={(e) => setFormData({ ...formData, order_note: e.target.value })}
+        />
+      </div>
+
     </>
   )
 }
