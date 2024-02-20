@@ -37,6 +37,7 @@ export default function ProductActions({
 
   const countryCode = useParams().countryCode as string
 
+  console.log("Product JSON:", product)
   const variants = product.variants
 
   // initialize the option state
@@ -73,8 +74,8 @@ export default function ProductActions({
   const variant = useMemo(() => {
     let variantId = undefined;
   
-    console.log("Options:", options);
-    console.log("Variant Record:", variantRecord);
+    // console.log("Options:", options);
+    // console.log("Variant Record:", variantRecord);
   
     for (const key of Object.keys(variantRecord)) {
       const record = variantRecord[key];
@@ -92,7 +93,7 @@ export default function ProductActions({
       }
     }
   
-    console.log("Variant ID:", variantId);
+    // console.log("Variant ID:", variantId);
   
     return variants.find(v => v.id === variantId);
   }, [options, variantRecord, variants]);
