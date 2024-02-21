@@ -37,7 +37,7 @@ export default function ProductActions({
 
   const countryCode = useParams().countryCode as string
 
-  console.log("Product JSON:", product)
+  // console.log("Product JSON:", product)
   const variants = product.variants
 
   // initialize the option state

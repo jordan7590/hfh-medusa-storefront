@@ -20,10 +20,10 @@ export default function ProductRail({
 
   return (
     <div className="content-container py-12 small:py-24">
-      <div className="flex justify-between mb-8">
-        <Text className="txt-xlarge">{collection.title}</Text>
-        <InteractiveLink href={`/collections/${collection.handle}`}>
-          View all
+      <div className="flex justify-between mb-8 font-bold">
+        <Text className="text-3xl font-bold">{collection.title}</Text>
+        <InteractiveLink href={`/collections/${collection.handle}`}>          
+         View all
         </InteractiveLink>
       </div>
       <ul className="grid grid-cols-2 small:grid-cols-4 gap-x-6 gap-y-24 small:gap-y-26">

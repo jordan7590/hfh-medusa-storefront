@@ -26,14 +26,14 @@ export default async function Footer() {
     <footer className="border-t border-ui-border-base w-full bg-[#F9F9F9]">
       <div className="content-container flex flex-col w-full">
         <div className="flex flex-col gap-y-6 xsmall:flex-row items-start justify-between py-40">
-          <div style={{ width: "450px" }}>
+        <div className="footer-logo-section">
             <LocalizedClientLink
               href="/"
               className="flex txt-compact-xlarge-plus text-ui-fg-subtle hover:text-ui-fg-base uppercase"
             >
               <img src="https://hfh.tonserve.com/assets/images/icon/logo.png" alt="Henry Ford Health" className="logo" />
             </LocalizedClientLink>
-            <p className="py-3">
+            <p className="py-3 text-justify">
               Welcome to Henry Ford Health Uniforms by Hoyt & Company. 
               Explore our range of customizable apparel and promotional products.
               Create a professional image with our selection.
@@ -122,36 +122,36 @@ export default async function Footer() {
               </div>
             )}
             <div className="flex flex-col gap-y-2">
-              <span className="txt-small-plus txt-ui-fg-base">Medusa</span>
+              <span className="txt-small-plus txt-ui-fg-base">Useful Links</span>
               <ul className="grid grid-cols-1 gap-y-2 text-ui-fg-subtle txt-small">
                 <li>
                   <a
-                    href="https://github.com/medusajs"
+                    href="#"
                     target="_blank"
                     rel="noreferrer"
                     className="hover:text-ui-fg-base"
                   >
-                    GitHub
+                    Return Policy
                   </a>
                 </li>
                 <li>
                   <a
-                    href="https://docs.medusajs.com"
+                    href="#"
                     target="_blank"
                     rel="noreferrer"
                     className="hover:text-ui-fg-base"
                   >
-                    Documentation
+                    Privacy policy
                   </a>
                 </li>
                 <li>
                   <a
-                    href="https://github.com/medusajs/nextjs-starter-medusa"
+                    href="#"
                     target="_blank"
                     rel="noreferrer"
                     className="hover:text-ui-fg-base"
                   >
-                    Source code
+                    Contact Us
                   </a>
                 </li>
               </ul>
@@ -181,7 +181,7 @@ export default async function Footer() {
           </div>
 
         </div>
-        <div className="flex w-full mb-16 justify-between text-ui-fg-muted">
+        <div className="footer-copyright flex w-full mb-16 xsmall:flex-row justify-between text-ui-fg-muted">
           <Text className="txt-compact-small">
             © {new Date().getFullYear()} Henry Ford Health Uniform Apparel. All rights reserved.
           </Text>

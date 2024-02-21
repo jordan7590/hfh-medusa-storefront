@@ -32,6 +32,9 @@ export default async function ProductPreview({
     region,
   })
 
+// const formattedTitle = productPreview.title.replace(/&#\d+;/g, '');
+    
+
   return (
     <LocalizedClientLink
       href={`/products/${productPreview.handle}`}
@@ -44,7 +47,7 @@ export default async function ProductPreview({
           isFeatured={isFeatured}
         />
         <div className="flex txt-compact-medium mt-4 justify-between">
-          <Text className="text-ui-fg-subtle font-semibold">{productPreview.title}</Text>
+          <Text className="text-ui-fg-subtle font-semibold">{productPreview.title.replace(/&#\d+;/g, '')}</Text>
           <div className="flex items-center gap-x-2 ">
             {cheapestPrice && <PreviewPrice price={cheapestPrice} />}
           </div>

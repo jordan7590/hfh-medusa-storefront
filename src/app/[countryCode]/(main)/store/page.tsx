@@ -4,8 +4,8 @@ import { SortOptions } from "@modules/store/components/refinement-list/sort-prod
 import StoreTemplate from "@modules/store/templates"
 
 export const metadata: Metadata = {
-  title: "Store",
-  description: "Explore all of our products.",
+  title: "Store | Henry Ford Health Uniform Apparel",
+  description: "Shop Henry Ford Health customized employee uniforms today! Choose from different products and logos to fully customize your apparel.",
 }
 
 type Params = {

@@ -36,10 +36,14 @@ export default async function Nav() {
     </div>
     
     {/* Right side links */}
-    <div className="flex items-center">
-      <a href="#" className="text-[#221F5F] hover:text-[#221F5F] mr-6">Home</a>
-      <a href="#" className="text-[#221F5F] hover:text-[#221F5F] mr-6">Store</a>
-      <a href="#" className="text-[#221F5F] hover:text-[#221F5F] mr-6">About</a>
+    <div className="flex items-center text-xs font-semibold text-uppercase">
+    <a href="https://hoytcompany.com/" target="_blank" rel="noopener noreferrer" className="text-[#221F5F] hover:text-[#221F5F]"> 
+      <i className="fa fa-globe text-[#221F5F] pr-2"></i>
+      Brought to you by HOYT &amp; COMPANY
+    </a>
+
+      {/* <a href="#" className="text-[#221F5F] hover:text-[#221F5F] mr-6">Store</a>
+      <a href="#" className="text-[#221F5F] hover:text-[#221F5F] mr-6">About</a> */}
       {/* Add more links as needed */}
     </div>
   </div>

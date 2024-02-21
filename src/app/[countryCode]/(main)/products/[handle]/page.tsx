@@ -57,12 +57,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     notFound()
   }
 
+  const title = product.title ? product.title.replace(/&#\d+;/g, '') : '';
+  const description = product.title ? product.title.replace(/&#\d+;/g, '') : '';
+
   return {
-    title: `${product.title} | Medusa Store`,
-    description: `${product.title}`,
+    title: `${title} | Henry Ford Health Uniform Apparel`,
+    description: `${title}`,
     openGraph: {
-      title: `${product.title} | Medusa Store`,
-      description: `${product.title}`,
+      title: `${title} | Henry Ford Health Uniform Apparel`,
+      description: `${description}`,
       images: product.thumbnail ? [product.thumbnail] : [],
     },
   }
