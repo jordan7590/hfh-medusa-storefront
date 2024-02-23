@@ -112,8 +112,8 @@
 
   .cart-qty-cls {
     position: absolute;
-    background: #221F5F;
-    width: 20px;
+    background: #b9b9b98f;
+    min-width: 20px;
     height: 20px;
     color: #fff;
     border-radius: 20px;
@@ -121,8 +121,8 @@
     font-size: 12px;
     line-height: 14px;
     font-weight: 600;
-    top: 18%;
-    right: -13px;
+    top: 1px;
+    right: -23px;
     padding: 3px;
 }
 .collection-filter-block {
@@ -419,3 +419,9 @@ span.size-box-size-value {
     font-size: 14px;
 }
   }
+
+  .social{
+    /* border-radius: 50%; */
+    border: 1px solid white;
+    padding:9px;
+}

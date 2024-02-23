@@ -20,31 +20,68 @@ export default async function Nav() {
 
   return (
 <>
-<div className="bg-[#F8F8F8] py-3 hidden sm:flex ">
+<div className="bg-[#201F5E] py-3 hidden sm:flex ">
   <div className="content-container mx-auto flex justify-between items-center">
     {/* Left side content */}
     <div className="flex items-center text-xs font-semibold">
       {/* Email and Phone Number */}
       <div className="flex items-center mr-6">
-      <i className="fa fa-envelope text-[#221F5F] pr-2"></i>
-        <a href="mailto:sales@hoytcompany.com" className="text-[#221F5F] hover:text-[#221F5F]">sales@hoytcompany.com</a>
+      <i className="fa fa-envelope text-[#ffffff] pr-2"></i>
+        <a href="mailto:sales@hoytcompany.com" className="text-[#ffffff] hover:text-[#ffffff]">sales@hoytcompany.com</a>
+      </div>
+      <div className="flex items-center mr-6">
+      <i className="fa fa-phone text-[#ffffff] pr-2"></i>
+        <span className="text-[#ffffff]">Customer Service: <a href="tel:8105471646">810.547.1646</a></span>
       </div>
       <div className="flex items-center">
-      <i className="fa fa-phone text-[#221F5F] pr-2"></i>
-        <span className="text-[#221F5F]">Customer Service: <a href="tel:8105471646">810.547.1646</a></span>
+        <span className="text-[#ffffff] font-bold">
+          <a href="#">What We Offer
+         <i className="fa fa-angle-down text-[#ffffff] pl-2"></i>
+         </a>
+         </span>
       </div>
     </div>
     
     {/* Right side links */}
     <div className="flex items-center text-xs font-semibold text-uppercase">
-    <a href="https://hoytcompany.com/" target="_blank" rel="noopener noreferrer" className="text-[#221F5F] hover:text-[#221F5F]"> 
-      <i className="fa fa-globe text-[#221F5F] pr-2"></i>
-      Brought to you by HOYT &amp; COMPANY
-    </a>
+    {/* <a href="https://hoytcompany.com/" target="_blank" rel="noopener noreferrer" className="text-[#ffffff] hover:text-[#ffffff]"> 
+        <i className="fa fa-globe text-[#ffffff] pr-2"></i>
+        Brought to you by HOYT &amp; COMPANY
+      </a> */}
 
-      {/* <a href="#" className="text-[#221F5F] hover:text-[#221F5F] mr-6">Store</a>
-      <a href="#" className="text-[#221F5F] hover:text-[#221F5F] mr-6">About</a> */}
-      {/* Add more links as needed */}
+
+      <div className="flex items-center gap-x-6 h-full basis-0 justify-end ml-10">
+            <div className="hidden small:flex items-center gap-x-6 h-full">
+              {process.env.FEATURE_SEARCH_ENABLED && (
+                <LocalizedClientLink
+                  className="hover:text-ui-fg-base"
+                  href="/search"
+                  scroll={false}
+                >
+                  Search
+                </LocalizedClientLink>
+              )}
+              <LocalizedClientLink
+                className="text-[#ffffff] flex items-center border-r border-solid border-white pr-5"
+                href="/account"
+              >
+                <i className="fa fa-user text-[#ffffff]" style={{fontSize:'18px', marginRight:'5px'}}></i>
+                    Account           
+              </LocalizedClientLink>
+            </div>
+            <Suspense
+              fallback={
+                <LocalizedClientLink
+                  className="hover:text-ui-fg-base flex gap-2"
+                  href="/cart"
+                >
+                  <i className="fa fa-shopping-cart text-[#ffffff] style={{fontSize:'18px'}}"></i> (0)
+                </LocalizedClientLink>
+              }
+            >
+              <CartButton />
+            </Suspense>
+          </div>
     </div>
   </div>
 </div>
@@ -78,7 +115,7 @@ export default async function Nav() {
 
           
           <div className="flex items-center gap-x-6 h-full
-           flex-1 basis-0 justify-end uppercase text-sm font-semibold text-gray-700 hover:text-[#221F5F] 
+           flex-1 basis-0 justify-end uppercase text-sm font-semibold text-gray-700 hover:text-[#201F5E] 
            hidden sm:flex ">
             {Object.entries(MenuItems).map(([label, link]) => (
                 <LocalizedClientLink
@@ -89,40 +126,6 @@ export default async function Nav() {
                   {label}
                 </LocalizedClientLink>
               ))}
-          </div>
-
-
-
-          <div className="flex items-center gap-x-6 h-full basis-0 justify-end ml-10">
-            <div className="hidden small:flex items-center gap-x-6 h-full">
-              {process.env.FEATURE_SEARCH_ENABLED && (
-                <LocalizedClientLink
-                  className="hover:text-ui-fg-base"
-                  href="/search"
-                  scroll={false}
-                >
-                  Search
-                </LocalizedClientLink>
-              )}
-              <LocalizedClientLink
-                className="hover:text-ui-fg-base txt-compact-xlarge-plus"
-                href="/account"
-              >
-                <i className="fa fa-user text-[#221F5F] "></i>
-              </LocalizedClientLink>
-            </div>
-            <Suspense
-              fallback={
-                <LocalizedClientLink
-                  className="hover:text-ui-fg-base flex gap-2 txt-compact-xlarge-plus"
-                  href="/cart"
-                >
-                  <i className="fa fa-shopping-cart text-[#221F5F] "></i> (0)
-                </LocalizedClientLink>
-              }
-            >
-              <CartButton />
-            </Suspense>
           </div>
         </nav>
       </header>

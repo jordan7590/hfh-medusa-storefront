@@ -83,7 +83,7 @@ const CartDropdown = ({
             href="/cart"
           >
             {/* {`Cart (${totalItems})`}</LocalizedClientLink> */}
-            <i className="fa fa-shopping-cart text-[#221F5F] "></i>
+            <i className="fa fa-shopping-cart text-[#ffffff]"></i>
             <div className="cart-qty-cls">{`${totalItems}`}</div>
           </LocalizedClientLink>
         </Popover.Button>
