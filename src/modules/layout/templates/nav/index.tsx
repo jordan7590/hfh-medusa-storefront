@@ -8,11 +8,14 @@ import SideMenu from "@modules/layout/components/side-menu"
 import "font-awesome/css/font-awesome.min.css"
 
 const MenuItems = {
-  Home: "/",
-  Store: "/store",
-  Search: "/search",
-  Account: "/account",
-  Cart: "/cart",
+  "Home": "/",
+  "All Products": "/store",
+  "Brands": "/",
+  "Apparel": "/",
+  "Promotional Items": "/",
+  "Drinkwear": "/",
+  "Bags": "/",
+  "Department or Color": "/",
 }
 
 export default async function Nav() {
@@ -20,7 +23,7 @@ export default async function Nav() {
 
   return (
 <>
-<div className="bg-[#201F5E] py-3 hidden sm:flex ">
+<div className="bg-[#8056BF] py-3 hidden sm:flex ">
   <div className="content-container mx-auto flex justify-between items-center">
     {/* Left side content */}
     <div className="flex items-center text-xs font-semibold">
@@ -29,12 +32,8 @@ export default async function Nav() {
       <i className="fa fa-envelope text-[#ffffff] pr-2"></i>
         <a href="mailto:sales@hoytcompany.com" className="text-[#ffffff] hover:text-[#ffffff]">sales@hoytcompany.com</a>
       </div>
-      <div className="flex items-center mr-6">
-      <i className="fa fa-phone text-[#ffffff] pr-2"></i>
-        <span className="text-[#ffffff]">Customer Service: <a href="tel:8105471646">810.547.1646</a></span>
-      </div>
       <div className="flex items-center">
-        <span className="text-[#ffffff] font-bold">
+        <span className="what-we-offer">
           <a href="#">What We Offer
          <i className="fa fa-angle-down text-[#ffffff] pl-2"></i>
          </a>
@@ -43,30 +42,34 @@ export default async function Nav() {
     </div>
     
     {/* Right side links */}
-    <div className="flex items-center text-xs font-semibold text-uppercase">
-    {/* <a href="https://hoytcompany.com/" target="_blank" rel="noopener noreferrer" className="text-[#ffffff] hover:text-[#ffffff]"> 
-        <i className="fa fa-globe text-[#ffffff] pr-2"></i>
-        Brought to you by HOYT &amp; COMPANY
-      </a> */}
-
-
-      <div className="flex items-center gap-x-6 h-full basis-0 justify-end ml-10">
+    <div className="items-center text-xs font-semibold text-uppercase">
+       <div className="flex items-center gap-x-6 h-full basis-0 justify-end ml-10">
             <div className="hidden small:flex items-center gap-x-6 h-full">
               {process.env.FEATURE_SEARCH_ENABLED && (
-                <LocalizedClientLink
-                  className="hover:text-ui-fg-base"
-                  href="/search"
-                  scroll={false}
-                >
-                  Search
-                </LocalizedClientLink>
+              <div className="search-products-container">
+                <img src="https://static.swag.com/images-webpack/search-icon.15b531054c0b2001ce39..svg"
+                 className="search-icon"
+                 alt="Magnifying glass icon for search"/>
+                  <div className="search-bar">
+                    {/* <label className="">Search:</label> */}
+                    <input id="searchField" data-element="search" 
+                      placeholder="Search" className="" value=""/>
+                    </div>
+                    </div>
               )}
+            </div>
+            <div className="hidden small:flex items-center h-full account-wrap">
               <LocalizedClientLink
-                className="text-[#ffffff] flex items-center border-r border-solid border-white pr-5"
+                className="text-[#ffffff]"
                 href="/account"
               >
-                <i className="fa fa-user text-[#ffffff]" style={{fontSize:'18px', marginRight:'5px'}}></i>
-                    Account           
+                    Log In           
+              </LocalizedClientLink>
+              <LocalizedClientLink
+                className="text-[#ffffff]"
+                href="/account"
+              >
+                    Sign Up           
               </LocalizedClientLink>
             </div>
             <Suspense
@@ -87,7 +90,7 @@ export default async function Nav() {
 </div>
 
 
-    <div className="sticky top-0 inset-x-0 z-50 group">
+    <div className="sticky top-0 inset-x-0 z-30 group">
       <header className="relative h-20 mx-auto border-b duration-200 bg-white border-ui-border-base">   
         <nav className="content-container txt-small-plus text-ui-fg-subtle flex items-center justify-between w-full h-full text-small-regular">      
 
@@ -97,7 +100,7 @@ export default async function Nav() {
             <LocalizedClientLink
               href="/"
               className="txt-compact-xlarge-plus hover:text-ui-fg-base uppercase"
-              style={{ marginLeft: "-20px" }}
+              style={{ marginLeft: "-20px", maxWidth:"400px"}}
             >
               <img src="https://hfh.tonserve.com/assets/images/icon/logo.png" alt="Henry Ford Health" className="logo" />
             </LocalizedClientLink>
@@ -115,12 +118,11 @@ export default async function Nav() {
 
           
           <div className="flex items-center gap-x-6 h-full
-           flex-1 basis-0 justify-end uppercase text-sm font-semibold text-gray-700 hover:text-[#201F5E] 
-           hidden sm:flex ">
+           flex-1 basis-0 justify-end capitalize text-sm text-black font-bold hidden sm:flex ">
             {Object.entries(MenuItems).map(([label, link]) => (
                 <LocalizedClientLink
                   key={label}
-                  className="hover:text-ui-fg-base"
+                  className="hover:text-[#8056BF]"
                   href={link}
                 >
                   {label}

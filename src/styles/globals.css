@@ -428,6 +428,86 @@ span.size-box-size-value {
 
 
 
+.what-we-offer{
+  font-size: 15px;
+  line-height: 26px;
+  min-width: 150px;
+  padding-right: 20px;
+  text-transform: capitalize;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.search-products-container {
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  min-width: 44px;
+  margin-left: 0;
+  margin-right: -7px;
+  padding-right: 0.28125rem;
+  width: 160px;
+}
+
+img.search-icon {
+  color: #fff;
+  cursor: pointer;
+  display: block!important;
+  height: 17px;
+  width: 17px;
+}
+
+.search-bar{
+  background-color: transparent;
+}
+.search-bar > input{
+  background-color: transparent;
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .6px;
+  opacity: 1;
+  pointer-events: auto;
+  position: static;
+  width: 100%;
+  background-image: linear-gradient(90deg,hsla(0,0%,100%,.7),hsla(0,0%,100%,.7));
+  background-position: right calc(100% - 6px);
+  background-repeat: no-repeat;
+  background-size: calc(100% - 10px) 1px;
+  padding: 10px;
+}
+
+
+.account-wrap {
+  border-left: solid 1px #979797;
+  border-right: solid 1px #979797;
+  padding: 0px 8px;
+  /* margin: 0px; */
+  color: #fff;
+  height: 1.5em;
+}
+.account-wrap > a {
+  padding: 8px 20px;
+}
+.account-wrap > a:hover {
+background-color: hsla(0,0%,100%,.1);
+}
+
+
+.hp_btn-sm {
+  @apply py-1 px-2 text-sm rounded-full;
+}
+
+.hp_btn-tertiary {
+  @apply text-gray-700 bg-white border border-gray-300;
+}
+
+.hp_btn-tertiary:hover {
+  @apply text-gray-900 bg-gray-100 border-gray-300;
+}
+
 
 
 /* homepage  */
@@ -3471,4 +3551,69 @@ span.size-box-size-value {
 .hp_register .hp_content>.hp_grid {
   --ss-columns: 1;
   --ss-gap: 1.25rem;
+}
+
+
+/* Return page  */
+
+.m-wrapper {
+  padding-right: 0.75rem;
+  padding-left: 0.75rem;
+  min-height: 80vh !important;
+}
+
+.returnNV .main-img {
+  background-image: url(https://cdn.ssactivewear.com/images/sns/2019/help/returns-header.jpg);
+  background-position-y: 68%;
+}
+.bg-img {
+  position: relative !important;
+  background-position-x: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.main-img {
+  width: 100%;
+}
+
+.subpage .text-bottom {
+  display: inline-block !important;
+  padding: 6.25rem 0 0 3.4375rem;
+  text-align: center !important;
+}
+
+.subpage .text-bottom .title-text {
+  padding: 30px 77px 0;
+  float: none !important;
+  background: #fff;
+  color: #c45003;
+  font-size: 1.75rem;
+  font-weight: bold;
+  letter-spacing: .1875rem;
+  line-height: 1;
+  text-transform: uppercase !important;
+}
+.text-gray {
+  color: #767674 !important;
+}
+
+.body-copy {
+  max-width: 1200px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.body-copy p, .body-copy li {
+  float: none !important;
+  line-height: 1.5;
+  font-size: 16px;
+  padding: 0 0 5px 0;
+  font-weight: 400;
+  color: #767674;
+}
+
+.body-copy ul.normal li {
+  list-style: disc !important;
+  padding: 0 0 5px 0;
+  clear: both;
 }

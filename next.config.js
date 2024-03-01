@@ -33,6 +33,10 @@ const nextConfig = withStoreConfig({
         protocol: "https",
         hostname: "cdnm.sanmar.com",
       },
+      {
+        protocol: "https",
+        hostname: "cdn.ssactivewear.com",
+      },
     ],
   },
 })
