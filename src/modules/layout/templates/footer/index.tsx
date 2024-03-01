@@ -4,7 +4,7 @@ import { getCategoriesList, getCollectionsList } from "@lib/data"
 
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import MedusaCTA from "../../components/medusa-cta"
-
+import SubscribeNewsletter from "./newsletter"
 const fetchCollections = async () => {
   const { collections } = await getCollectionsList()
   return collections
@@ -188,40 +188,32 @@ export default async function Footer() {
               <ul className="grid grid-cols-1 gap-y-2 txt-small text-[#fff]">
                 <li>
                   <a
-                    href="#"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="hover:text-ui-fg-base"
+                    href="/pages/returnpolicy"
+                    className="hover:text-[#9655BF]"
                   >
                     Return Policy
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="#"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="hover:text-ui-fg-base"
+                <a
+                    href="/pages/privacypolicy"
+                    className="hover:text-[#9655BF]"
                   >
-                    Privacy policy
+                    Privacy Policy
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="#"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="hover:text-ui-fg-base"
+                <a
+                    href="/pages/termsofuse"
+                    className="hover:text-[#9655BF]"
                   >
-                    Contact Us
+                    Terms & Conditions
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="#"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="hover:text-ui-fg-base"
+                <a
+                    href="/pages/contact"
+                    className="hover:text-[#9655BF]"
                   >
                     Contact Us
                   </a>
@@ -325,7 +317,7 @@ export default async function Footer() {
             <div className="flex flex-col gap-y-2 text-[#fff]">
               <span className="txt-small-plus txt-ui-fg-base text-bold" style={{fontSize:'18px', paddingBottom:'10px'}}>Get in touch</span>
               <ul className="grid grid-cols-1 gap-y-2 txt-small text-[#fff]">
-              <li className="flex items-center space-x-2">
+              {/* <li className="flex items-center space-x-2">
                     <i className="fa fa-map-marker text-gray-0"></i>
                     <span>12555 N. Saginaw Rd.<br/>Clio, MI 48420</span>
                 </li>
@@ -340,7 +332,7 @@ export default async function Footer() {
                 <li className="flex items-center space-x-2">
                     <i className="fa fa-envelope-o text-gray-0"></i>
                     <span>Email: <a href="mailto:sales@hotcompany.com">sales@hoytcompany.com</a></span>
-                </li>
+                </li> */}
                 <li className="flex items-center space-x-2">
                 <a href="https://www.instagram.com/hoytcompany/">
                   <i className="fa fa-instagram social txt-small-plus text-[#fff]"></i> 
@@ -351,6 +343,8 @@ export default async function Footer() {
                 
                 </li>
               </ul>
+              <span className="txt-small-plus txt-ui-fg-base text-bold" style={{fontSize:'18px', paddingBottom:'10px',  marginTop:'15px'}}>Subscribe</span>
+              <SubscribeNewsletter />
             </div>
           </div>
 
