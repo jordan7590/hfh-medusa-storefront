@@ -25,7 +25,7 @@ export default async function Footer() {
   return (
     <footer className="border-t border-ui-border-base w-full bg-[#181B1B]">
       <div className="content-container flex flex-col w-full">
-        <div className="flex flex-col gap-y-6 xsmall:flex-row items-start justify-between py-40">
+        <div className="flex flex-col gap-y-6 xsmall:flex-row items-start justify-between py-20">
           <div className="footer-logo-section">
             <LocalizedClientLink
               href="/"
@@ -350,7 +350,7 @@ export default async function Footer() {
 
 
         </div>
-        <div className="footer-copyright flex w-full mb-16
+        <div className="footer-copyright flex w-full
          xsmall:flex-row justify-between text-ui-fg-muted border-t border-solid border-[#5b5b5b]"
          style={{paddingTop:'30px'}}>
           <Text className="txt-compact-small">

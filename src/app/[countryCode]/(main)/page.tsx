@@ -84,7 +84,7 @@ export default async function Home({
     <>
       <Hero />
 
-      <div className="hp_brands hp_d-flex-column hp_section hp_z-index-1">
+      <div className="hp_brands hp_d-flex-column hp_section hp_z-index-1 box-shadow-bar">
       <div className="hp_component hp_d-flex-column">
         <div className="hp_content hp_d-flex-column">
           <div className="hp_grid hp_justify-content-center hp_wrap">

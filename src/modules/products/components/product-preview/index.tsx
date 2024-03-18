@@ -40,14 +40,17 @@ export default async function ProductPreview({
       href={`/products/${productPreview.handle}`}
       className="group"
     >
-      <div>
+      <div className="product-card">
         <Thumbnail
           thumbnail={productPreview.thumbnail}
-          size="full"
+          size="square"
           isFeatured={isFeatured}
         />
         <div className="flex txt-compact-medium mt-4 justify-between">
-          <Text className="text-ui-fg-subtle font-semibold">{productPreview.title.replace(/&#\d+;/g, '')}</Text>
+        <Text className="text-ui-fg-subtle font-semibold">
+          {productPreview.title.replace(/&#\d+;/g, '').substring(0, 30)}
+          {productPreview.title.length > 30 ? "..." : ""}
+        </Text>
           <div className="flex items-center gap-x-2 ">
             {cheapestPrice && <PreviewPrice price={cheapestPrice} />}
           </div>
